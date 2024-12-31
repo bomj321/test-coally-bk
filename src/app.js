@@ -1,5 +1,8 @@
 //Requires
 let express = require("express");
+let swaggerUi = require("swagger-ui-express");
+let swaggerSetup = require("./docs/swagger");
+
 const {
   logErrors,
   errorHandler,
@@ -27,6 +30,9 @@ app.use((req, res, next) => {
   res.header("Allow", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
+
+//Swagger
+app.use("/api/swagger", [...swaggerUi.serve], swaggerUi.setup(swaggerSetup));
 
 //Rewrite Routes
 app.use("/api", auth_routes);
