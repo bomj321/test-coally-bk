@@ -1,5 +1,6 @@
 let swaggerJSDoc = require("swagger-jsdoc");
 let TasksDocs = require("./TasksDocs");
+let AuthDocs = require("./AuthDocs");
 
 const swaggerDefinition = {
   openapi: "3.0.0",
@@ -15,11 +16,24 @@ const swaggerDefinition = {
   ],
   components: {
     schemas: {
+      user: {
+        type: "object",
+        required: ["email", "password"],
+        properties: {
+          email: {
+            type: "string",
+          },
+          password: {
+            type: "string",
+          },
+        },
+      },
+
       task: {
         type: "object",
         required: ["title", "description", "state"],
         properties: {
-          id: {
+          _id: {
             type: "string",
           },
           title: {
@@ -56,6 +70,7 @@ const swaggerDefinition = {
     },
   },
   paths: {
+    ...AuthDocs,
     ...TasksDocs,
   },
 };

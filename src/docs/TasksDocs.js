@@ -67,6 +67,68 @@ const swaggerPaths = {
         },
       ],
     },
+    post: {
+      tags: [tag],
+      summary: "path to create a task",
+
+      requestBody: {
+        content: {
+          "application/json": {
+            schema: {
+              $ref: "#/components/schemas/task",
+            },
+          },
+        },
+      },
+      responses: {
+        200: {
+          description: "Task created",
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                $ref: "#/components/schemas/task",
+              },
+            },
+          },
+        },
+        401: {
+          description: "Unauthorized",
+          content: {
+            "application/json": {
+              type: "object",
+              schema: {
+                type: "object",
+                $ref: "#/components/schemas/error401",
+              },
+            },
+          },
+        },
+
+        500: {
+          description: "Could not update task",
+          content: {
+            "application/json": {
+              type: "object",
+              schema: {
+                type: "object",
+                $ref: "#/components/schemas/error500",
+              },
+            },
+          },
+        },
+      },
+      security: [
+        {
+          ApiKeyAuth: [],
+        },
+      ],
+      servers: [
+        {
+          url: "http://localhost:8081/api/",
+        },
+      ],
+    },
   },
 
   [`${endpointBase}/{id}`]: {
