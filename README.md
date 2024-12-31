@@ -1,4 +1,4 @@
-Node.js 
+Node.js
 
 ## Getting Started
 
@@ -8,6 +8,12 @@ First, run the development server:
 npm run dev
 ```
 
+## Getting Tests
+
+I have used JEST and SUPERTEST
+
+```bash
+npm run test
 ```
 
 ## Peculiarities
@@ -18,6 +24,8 @@ Passport to generate the JWT token and to use the local strategy
 ## Endpoints
 
 ```bash
+SWAGGER http://localhost:8081/api/swagger
+
 http://localhost:8081/api/auth/register
 http://localhost:8081/api/auth/login
 
@@ -41,4 +49,3 @@ PUT http://localhost:8081/api/tasks/67734bdd64b30ffb85fe615e
 
 DELETE: http://localhost:8081/api/tasks/67734beb64b30ffb85fe615f
 ```
-
