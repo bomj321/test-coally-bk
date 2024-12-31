@@ -16,8 +16,8 @@ async function seedAdmin() {
   if (!existingAdmin) {
     // Create admin credentials
     const adminCredentials = {
-      name: "test",
-      password: "12345",
+      email: "jmob614@gmail.com",
+      password: "123456789",
     };
 
     // Hash the admin password
